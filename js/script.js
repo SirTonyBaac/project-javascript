@@ -350,6 +350,7 @@ console.log(obj);
 */
 
 // แบบฝึกหัด สร้าง object calculator จาก 3 methods นี้ read() ใช้ prompts สำหรับรับค่ามา 2 ค่าและเก็บเป็น object properties. sum() คืนค่าผลบวกของ 2 ค่านั้น. mul() คืนค่าผลคูณของ 2 ค่านั้น.
+/*
 let calculator = {
     read() {
         this.x = prompt("x :");
@@ -365,4 +366,129 @@ let calculator = {
 calculator.read();
 alert( calculator.sum() );
 alert( calculator.mul() );
+*/
+
+// แบบฝึกหัด ให้เขียนฟังก์ชัน random(min, max) ที่จะ random เลข float ตั้งแต่ min จนถึง max มาให้เรา (ไม่รวม max)
+/*
+let result = 0;
+let min = prompt("Min :");
+let max = prompt("Max :");
+let fcRandom = (x, y) => {
+    y = Number(y) + 1;
+    sum = Number(x) + Math.random(x, y);
+    return sum;
+}
+for(let i=1; i<max ; i++){
+    fcRandom(min, max);
+    console.log(`Result Random => ${sum}`);
+}
+*/
+
+// แบบฝึกหัด เขียนฟังก์ชัน ucFirst(string) โดยทำคืนค่าเป็น string เดิม แต่ตัวแรกของ string กลายเป็นพิมพ์ใหญ่
+let ucString = "hello world";
+let ucFirst = (string) => {
+    str = string.substr(0,1).toUpperCase() + string.substr(1);
+    sumString = str.substr(0,6) + str.substr(6,1).toUpperCase() + str.substr(7);
+}
+ucFirst(ucString);
+console.log(`Start String => ${ucString} | End String => ${sumString}`);
+
+// แบบฝึกหัด เขียนฟังก์ชันที่ checkSpam โดยถ้าข้อความดังกล่าวมีคำว่า “xxx” หรือ “viagra” ให้คืนค่าเป็น true ถ้าไม่มีให้คืนค่าเป็น false
+let checkString = "viagra xxx";
+let checkSpam = (string) => {
+    return findString = string.includes("viagra");
+}
+checkSpam(checkString);
+console.log(`String => ${findString}`);
+
+// แบบฝึกหัด เขียนฟังก์ชันที่ extractCurrencyValue(string, rate) โดยที่ฟังก์ชันดังกล่าวจะแปลง string ที่เป็นค่าเงิน dollar ให้เป็น number ที่มีค่าเป็นเงินบาทไทย โดยอ้างอิง  rate จาก parameters ตัวที่สอง ที่ส่งมาให้
+let money = "$12#0";
+let rate = 30.5;
+let extractCurrencyValue = (money, rate) => {
+    for (let i = 0; i < money.length; i++)
+    {
+        str = money.substr(i,1);
+        if (isNaN(str)) {
+            money = money.replace(money.substr(i,1), "");
+        }
+    }
+    return amount = money * rate;
+}
+extractCurrencyValue(money, rate);
+console.log(`Amount => ${amount}`);
+
+// ให้ทำตามขั้นตอนต่อไปนี้ สร้าง array ชื่อ styles ที่มี items ชื่อ “Jazz” และ “Blues” เพิ่ม “Rock-n-Roll” ต่อท้าย นำค่า Classics ไปทับค่าตรงกลางของ Array นำ items ตัวแรกออกมาและลบ items ตัวนั้นออกจาก array เพิ่ม “Rap” และ “Reggae” ไปข้างหน้าของ Array
+/*
+let styles  = new Array("Jazz", "Blues");
+styles.push("Rock-n-Roll");
+styles[1] = "Classics";
+styles.shift();
+styles.unshift("Rap", "Reggae");
+console.log(styles);
+*/
+
+// แบบฝึกหัด เขียนฟังก์ชัน sumInput() ที่ใช้ propmt รับ value มาเก็บใน array หยุดถามเมื่อเจอค่าที่ไม่ใช่ ตัวเลข คำนวณผลรวมของตัวเลขทั้งหมดใน Array
+/*
+let input = prompt("Input Array :");
+let numArray  = new Array();
+let sumArray = 0;
+let sumInput = (input) => {
+    while (true) {
+        if (isNaN(input)) break;
+        numArray.push(input);
+        console.log(numArray);
+        sumArray = sumArray + Number(input);
+        input = prompt("Input Array :");
+    }
+    return sumArray;
+}
+sumInput(input);
+console.log(`Total => ${sumArray}`);
+*/
+
+// แบบฝึกหัด ให้สร้าง array2 จาก array1 ตามที่โจทย์กำหนด โดยใช้ฟังก์ชัน Array.map() การบ้านส่งพรุ่งนี้
+// 1.1 (let array2 = [2, 4, 60, 800];)
+let ex11array1 = [1, 2, 30, 400];
+let ex11array2 = ex11array1.map(function(x) { return x * 2 });
+console.log(`Ex 1.1 array2 => ${ex11array2}`);
+
+// 1.2 (/let array2 ["1", "2", "3", "4"];)
+let ex12array1 = [1, 2, 3, 4];
+let ex12array2 = ex12array1.map(item => String(item));
+console.log(`Ex 1.2 array2 => ${ex12array2}`);
+
+// 1.3 (array2 ["number", "string", "number", "object"];)
+let ex13array1 = [1, "1", 2, {}];
+let ex13array2 = ex13array1.map(item => typeof item);
+console.log(`Ex 1.3 array2 => ${ex13array2}`);
+
+// 1.4 (array2 ["APPLE", "BANANA", "ORANGE"];)
+let ex14array1 = ["apple", "banana", "orange"];
+let ex14array2 = ex14array1.map(item => item.toLocaleUpperCase());
+console.log(`Ex 1.4 array2 => ${ex14array2}`);
+
+// 1.5 (array2 ["apple", "banana", "watermelon"];)
+let ex15array1 = [
+    { name: "apple", age: 14 },
+    { name: "banana", age: 18 },
+    { name: "watermelon", age: 32 },
+]
+let ex15array2 = ex15array1.map(item => item.name);
+console.log(`Ex 1.5 array2 => ${ex15array2}`);
+
+// 1.6 (array2 [14, 18, 32];)
+let ex16array1 = [
+    { name: "apple", age: 14 },
+    { name: "banana", age: 18 },
+    { name: "watermelon", age: 32 },
+]
+let ex16array2 = ex16array1.map(item => item.age);
+console.log(`Ex 1.6 array2 => ${ex16array2}`);
+
+// Array.from
+let map = new Map();
+map.set("name", "John");
+let keys = Array.from(map.keys());
+keys.push("more");
+console.log(keys);
 
