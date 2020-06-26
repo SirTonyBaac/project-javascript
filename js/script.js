@@ -1,5 +1,9 @@
 alert("Hello JavaScript");
 console.log("Hello JavaScript");
+(() => {
+    console.log('Welcome to the Internet. Please follow me.');
+})();
+  
 
 // var ใช้กับตัวแปรที่เปลี่ยนค่าได้ เป็นได้ทั้ง ตัวเลข หรือ ตัวอักษร
 var a = 10;
@@ -492,3 +496,13 @@ let keys = Array.from(map.keys());
 keys.push("more");
 console.log(keys);
 
+// ลองทำสำเนา โดยใช้ spread กับ array ต่อไปนี้
+const fruits = ['apple','banana','orange'];
+const copyfruits = [...fruits];
+console.log(`fruits => ${fruits}`);
+console.log(`copyfruits => ${copyfruits}`);
+
+const students = [{ id : 1, name : 'bean', age : 14},{id : 2, name : 'ken', age : 15}];
+const copystudents = [...students];
+console.log(students);
+console.log(copystudents);
